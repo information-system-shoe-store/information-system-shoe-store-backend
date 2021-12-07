@@ -1,32 +1,25 @@
-package com.informationsystemshoestore.shoestoredataservice;
+package com.informationsystemshoestore.shoestoredataservice.payload;
 
+import com.informationsystemshoestore.shoestoredataservice.payload.response.ProductResponse;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import java.time.LocalDate;
 import java.util.List;
 
-@Table(name = "sale", schema = "shoe_store_schema")
-@Entity
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
+@Builder
 @NoArgsConstructor
-
 /*
-  Таблица "Продажи"
+  Dto "Продажи"
  */
-public class Sale {
+public class SaleDto {
     /**
      * Код продажи
      */
-    @Id
     private Long id;
 
     /**
@@ -47,6 +40,5 @@ public class Sale {
     /**
      * Товары
      */
-    @OneToMany(mappedBy = "sale")
-    private List<Product> products;
+    private List<ProductResponse> products;
 }

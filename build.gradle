@@ -19,13 +19,20 @@ repositories {
 }
 
 dependencies {
+	implementation 'org.mapstruct:mapstruct:1.4.2.Final'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+	annotationProcessor 'org.projectlombok:lombok'
+	annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final', "org.projectlombok:lombok"
+
+	compileOnly 'org.mapstruct:mapstruct:1.4.2.Final', "org.projectlombok:lombok"
 	compileOnly 'org.projectlombok:lombok'
+
 	runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
 	runtimeOnly 'io.r2dbc:r2dbc-mssql'
-	annotationProcessor 'org.projectlombok:lombok'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
 }

@@ -1,20 +1,24 @@
-package com.informationsystemshoestore.shoestoredataservice;
+package com.informationsystemshoestore.shoestoredataservice.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.Accessors;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.relational.core.mapping.Table;
 
-import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Table(name = "product", schema = "shoe_store_schema")
-@Entity
+@Table
 @Getter
 @Setter
-@AllArgsConstructor
+@Accessors(chain = true)
 @NoArgsConstructor
 
 /*
@@ -40,7 +44,7 @@ public class Product {
     /**
      * Количество
      */
-    private String amount;
+    private Integer amount;
 
     /**
      * Дата поступления
@@ -55,19 +59,24 @@ public class Product {
     /**
      * Поставщики
      */
-    @ManyToMany(mappedBy = "products")
+    @Transient
     private List<Provider> providers = new ArrayList<>();
 
     /**
      * Продавцы
      */
-    @ManyToMany(mappedBy = "products")
-    private List<Provider> sellers = new ArrayList<>();
+    @Transient
+    private List<Seller> sellers = new ArrayList<>();
 
     /**
      * Продажа
      */
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sale_id")
+    @Transient
     private Sale sale;
+
+    @CreatedDate
+    private LocalDateTime createdDate;
+
+    @LastModifiedDate
+    private LocalDateTime lastModifiedDate;
 }

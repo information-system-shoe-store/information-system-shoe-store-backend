@@ -5,11 +5,18 @@ IF NOT EXISTS(SELECT *
         CREATE DATABASE shoe_store_db;
     END;
 GO
-USE [shoe_store_db]
+USE [shoe_store_db];
+GO
+CREATE LOGIN nikitecc
+    WITH PASSWORD = 'n_lvov1705';
+GO
+CREATE USER nikitecc FOR LOGIN nikitecc WITH DEFAULT_SCHEMA=shoe_store_schema;
+GO
+GRANT ALL PRIVILEGES TO nikitecc;
 GO
 IF (NOT EXISTS(SELECT *
                FROM sys.schemas
                WHERE name = 'shoe_store_schema'))
     BEGIN
-        EXEC ('CREATE SCHEMA [shoe_store_schema] AUTHORIZATION [dbo]')
+        EXEC ('CREATE SCHEMA [shoe_store_schema] AUTHORIZATION [nikitecc]')
     END;
