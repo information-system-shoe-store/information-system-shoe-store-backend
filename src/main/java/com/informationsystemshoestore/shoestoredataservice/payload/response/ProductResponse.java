@@ -1,5 +1,6 @@
 package com.informationsystemshoestore.shoestoredataservice.payload.response;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.informationsystemshoestore.shoestoredataservice.payload.ProviderDto;
 import com.informationsystemshoestore.shoestoredataservice.payload.SaleDto;
 import com.informationsystemshoestore.shoestoredataservice.payload.SellerDto;
@@ -8,6 +9,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -45,6 +47,8 @@ public class ProductResponse {
     /**
      * Дата поступления
      */
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDate receiptDate;
 
     /**
