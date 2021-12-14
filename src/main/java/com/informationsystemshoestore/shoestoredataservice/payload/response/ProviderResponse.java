@@ -1,10 +1,10 @@
-package com.informationsystemshoestore.shoestoredataservice.payload;
+package com.informationsystemshoestore.shoestoredataservice.payload.response;
 
-import com.informationsystemshoestore.shoestoredataservice.payload.response.ProductResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,11 +13,12 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @NoArgsConstructor
-
+@Accessors(chain = true)
 /*
-  Dto "Поставщики"
+  Response Dto "Поставщики"
  */
-public class ProviderDto {
+public class ProviderResponse {
+
     /**
      * Код поставщика
      */
@@ -31,7 +32,7 @@ public class ProviderDto {
     /**
      * Телефон
      */
-    private Integer phone;
+    private String phone;
 
     /**
      * Адрес

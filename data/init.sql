@@ -2,7 +2,7 @@ IF NOT EXISTS(SELECT *
               FROM sys.databases
               WHERE name = 'shoe_store_db')
     BEGIN
-        CREATE DATABASE shoe_store_db;
+        CREATE DATABASE shoe_store_db COLLATE Cyrillic_General_CI_AS;
     END;
 GO
 USE [shoe_store_db];

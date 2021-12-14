@@ -1,9 +1,8 @@
 package com.informationsystemshoestore.shoestoredataservice.payload.response;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.informationsystemshoestore.shoestoredataservice.payload.ProviderDto;
-import com.informationsystemshoestore.shoestoredataservice.payload.SaleDto;
-import com.informationsystemshoestore.shoestoredataservice.payload.SellerDto;
+import com.informationsystemshoestore.shoestoredataservice.payload.request.ProviderRequest;
+import com.informationsystemshoestore.shoestoredataservice.payload.request.SaleRequest;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -59,15 +58,10 @@ public class ProductResponse {
     /**
      * Поставщики
      */
-    private List<ProviderDto> providers = new ArrayList<>();
-
-    /**
-     * Продавцы
-     */
-    private List<SellerDto> sellers = new ArrayList<>();
+    private List<ProviderRequest> providers = new ArrayList<>();
 
     /**
      * Продажа
      */
-    private SaleDto sale;
+    private SaleRequest sale;
 }

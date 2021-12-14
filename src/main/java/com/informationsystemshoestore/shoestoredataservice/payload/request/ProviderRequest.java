@@ -1,10 +1,11 @@
-package com.informationsystemshoestore.shoestoredataservice.payload;
+package com.informationsystemshoestore.shoestoredataservice.payload.request;
 
 import com.informationsystemshoestore.shoestoredataservice.payload.response.ProductResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,30 +14,31 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @NoArgsConstructor
-
+@Accessors(chain = true)
 /*
-  Dto "Продавцы"
+  Request Dto "Поставщики"
  */
-public class SellerDto {
-    /**
-     * Код сотрудника
-     */
-    private Long id;
+public class ProviderRequest {
 
     /**
-     * Табельный номер
+     * Название
      */
-    private String personalNumber;
+    private String name;
 
     /**
-     * ФИО
+     * Телефон
      */
-    private String fullName;
+    private String phone;
 
     /**
-     * Должность
+     * Адрес
      */
-    private String position;
+    private String address;
+
+    /**
+     * Контактное лицо
+     */
+    private String contactPerson;
 
     /**
      * Товары

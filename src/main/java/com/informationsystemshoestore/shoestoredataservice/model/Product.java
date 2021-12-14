@@ -63,12 +63,6 @@ public class Product {
     private List<Provider> providers = new ArrayList<>();
 
     /**
-     * Продавцы
-     */
-    @Transient
-    private List<Seller> sellers = new ArrayList<>();
-
-    /**
      * Продажа
      */
     @Transient

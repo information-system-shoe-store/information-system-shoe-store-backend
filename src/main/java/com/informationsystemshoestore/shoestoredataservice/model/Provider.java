@@ -38,7 +38,7 @@ public class Provider {
     /**
      * Телефон
      */
-    private Integer phone;
+    private String phone;
 
     /**
      * Адрес
