@@ -24,7 +24,6 @@ public class SaleResponse {
     /**
      * Код продажи
      */
-    @Id
     private Long id;
 
     /**

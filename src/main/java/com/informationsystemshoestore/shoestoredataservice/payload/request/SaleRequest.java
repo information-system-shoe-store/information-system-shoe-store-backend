@@ -1,5 +1,6 @@
 package com.informationsystemshoestore.shoestoredataservice.payload.request;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.informationsystemshoestore.shoestoredataservice.payload.response.ProductResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,15 +20,10 @@ import java.util.List;
   Request Dto "Продажи"
  */
 public class SaleRequest {
-
-    /**
-     * Код продажи
-     */
-    private Long id;
-
     /**
      * Дата продажи
      */
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
     private LocalDate saleDate;
 
     /**
