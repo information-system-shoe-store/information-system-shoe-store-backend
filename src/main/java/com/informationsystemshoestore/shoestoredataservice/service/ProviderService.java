@@ -27,6 +27,11 @@ public class ProviderService {
         return providerRepository.findById(id).switchIfEmpty(Mono.error(new RuntimeException("id не найдено")));
     }
 
+    public Mono<Long> getProviderCount(String startDate, String endDate) {
+
+        return providerRepository.getProviderCountWithParam(startDate, endDate);
+    }
+
     @Transactional
     public Mono<Provider> addProvider(ProviderRequest provider) {
 
@@ -34,7 +39,7 @@ public class ProviderService {
     }
 
     @Transactional
-    public Mono<Void> deleteProvider(Long id){
+    public Mono<Void> deleteProvider(Long id) {
 
         return providerRepository.deleteById(id).switchIfEmpty(Mono.error(new RuntimeException("id не найдено")));
     }

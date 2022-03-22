@@ -27,6 +27,11 @@ public class SaleService {
         return saleRepository.findById(id).switchIfEmpty(Mono.error(new RuntimeException("id не найдено")));
     }
 
+    public Mono<Long> getSaleCount(String startDate, String endDate) {
+
+        return saleRepository.getSaleCountWithParam(startDate, endDate);
+    }
+
     @Transactional
     public Mono<Sale> addSale(SaleRequest sale) {
 

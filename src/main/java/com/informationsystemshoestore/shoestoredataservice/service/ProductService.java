@@ -27,6 +27,11 @@ public class ProductService {
         return productRepository.findById(id).switchIfEmpty(Mono.error(new RuntimeException("id не найдено")));
     }
 
+    public Mono<Long> getProductCount(String startDate, String endDate) {
+
+        return productRepository.getProductCountWithParam(startDate, endDate);
+    }
+
     @Transactional
     public Mono<Product> addProduct(ProductRequest product) {
 
@@ -34,7 +39,7 @@ public class ProductService {
     }
 
     @Transactional
-    public Mono<Void> deleteProduct(Long id){
+    public Mono<Void> deleteProduct(Long id) {
 
         return productRepository.deleteById(id).switchIfEmpty(Mono.error(new RuntimeException("id не найдено")));
     }
