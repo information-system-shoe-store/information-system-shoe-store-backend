@@ -1,0 +1,6 @@
+server:
+  port: 8081
+webclient:
+  shoe-store-data-service:
+    url: http://localhost:8080
+    get-statistic: /statistic/export
