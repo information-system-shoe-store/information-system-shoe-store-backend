@@ -8,7 +8,7 @@ GO
 USE [shoe_store_db];
 GO
 CREATE LOGIN nikitecc
-    WITH PASSWORD = 'n_lvov1705';
+    WITH PASSWORD = 'n.lvov_1705';
 GO
 CREATE USER nikitecc FOR LOGIN nikitecc WITH DEFAULT_SCHEMA=shoe_store_schema;
 GO

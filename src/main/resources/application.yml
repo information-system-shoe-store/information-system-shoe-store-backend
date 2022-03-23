@@ -5,7 +5,9 @@ spring:
   r2dbc:
     url: r2dbc:mssql://localhost:1433/shoe_store_db
     username: nikitecc
-    password: n_lvov1705
+    password: n.lvov_1705
   sql:
     init:
       mode: always
+      schema-locations: classpath:sql/schema.sql
+      data-locations: classpath:sql/mock.sql
